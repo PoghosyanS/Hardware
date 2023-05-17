@@ -1,0 +1,33 @@
+README - Computer Architecture Simulation
+This program is a computer architecture simulation that models the behavior of various components commonly found in a computer system. The simulation includes classes for the RAM, ALU, Register, CPU, and Control Unit.
+
+Classes
+1. Ram
+The Ram class represents the main memory of the computer system. It provides methods for reading from and writing to specific memory locations. The size of the memory can be configured during initialization.
+
+2. ALU (Arithmetic Logic Unit)
+The ALU class represents the arithmetic logic unit of the computer system. It provides methods for performing various arithmetic and logical operations such as addition, subtraction, multiplication, division, AND, OR, etc.
+
+3. Register
+The Register class represents a processor register, which is a small storage location within the CPU. It provides methods for reading from and writing to the register. The size and functionality of the register can be customized during initialization.
+
+4. Cpu (Central Processing Unit)
+The Cpu class represents the central processing unit of the computer system. It contains registers and an ALU and performs the execution of instructions. The CPU interacts with other components such as the RAM and control unit to fetch instructions, process data, and perform operations.
+
+5. ControlUnit
+The ControlUnit class represents the control unit of the computer system. It controls the flow of data and instructions within the CPU and coordinates the execution of various operations. The control unit manages the sequencing of instructions and signals the CPU on which operations to perform.
+
+
+The program starts by instantiating objects of the required classes: Ram, ALU, Register, Cpu, and ControlUnit. Each class represents a specific component of the computer system.
+
+The objects are connected together by passing necessary references or dependencies between them. For example, the Cpu object needs references to the ALU, Register, and Ram objects to perform operations and access data.
+
+The properties and behaviors of each component can be configured according to the desired simulation scenario. This includes setting the size of the RAM, configuring the operations supported by the ALU, defining the functionality of registers, etc.
+
+Once the components are set up, the program can interact with them. The program can read from and write to specific memory locations in the RAM, perform arithmetic and logical operations using the ALU, read from and write to registers, and execute instructions using the CPU.
+
+The CPU, with the help of the Control Unit, coordinates the execution of instructions. The Control Unit manages the sequencing of instructions and signals the CPU on which operations to perform. The CPU fetches instructions from memory, decodes them, performs the necessary operations using the ALU and registers, and updates the memory as needed.
+
+The program can monitor the output or perform additional actions based on the simulation results. For example, it can print the result of a computation, display the contents of specific memory locations, or trigger specific actions based on certain conditions.
+
+
