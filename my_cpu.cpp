@@ -84,6 +84,9 @@ public:
 		int op1 = ((instr >> 8) & a) ;
         	int op2 = instr & a;
 
+		
+	
+
 		reg.get_arr(5) = ram.read(op1);
 		reg.get_arr(6) = ram.read(op2);
         	switch (opcode) {
@@ -118,32 +121,9 @@ public:
  	 }	
 };
 
-//class Cpu{
-//public:
-//      Ram ram;
-//
-// 	void loadProgram(std::vector<int> program) {
-//     	for (int i = 0; i < program.size(); i++) {
-//
-//         	ram.write(i, program[i]);
-//      	}
-//      
-//
-//      }
-//
-//private:
-//    	Control_Unit control_unit;
-//public:
-//    	void runProgram(std::vector<int> program) {
-//        	control_unit.loadProgram(program);
-//        	control_unit.execute();
-//    	}
-//};
-
 int main() {
    	std::vector<int> program = {0b00000000'00000011'00000001'00000010,10,2,0};
    	Control_Unit control_unit;
-//	Cpu cpu;
    	control_unit.loadProgram(program);
    	control_unit.execute();
 
