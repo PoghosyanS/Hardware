@@ -7,9 +7,8 @@ It provides methods for reading from and writing to specific memory locations.
 The size of the memory can be configured during initialization.
 */
 class Ram {
-private:
-	std::vector<int> memory;
 public:
+	std::vector<int> memory;
 	Ram();
 
 	int read(int adress);
@@ -64,6 +63,7 @@ process data, and perform operations.
 */
 class CPU {
 public:
+	int instr_count;
 	void load(std::vector<int> program);
 	void execute();
 

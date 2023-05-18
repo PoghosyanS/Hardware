@@ -59,27 +59,22 @@ void Control_Unit::exe() {
 }
 
 //function Action performs arithmetic and logical operations on input data. In the provided code
-int ALU::Action(int x,int y,int z) {
-	int result = 0;
-	switch (z) {
+int ALU::Action(int x,int y,int opcode) {
+	switch (opcode) {
 	case 0:
-		result = x + y;
-		break;
+		return  x + y;
 	case 1:
-		result = x - y;
-		break;
+		return  x - y;
 	case 2:
-		result = x * y;
-		break;
+		return x * y;
 	case 3:
-		result = x / y;
-		break;
+		return x / y;
 	default:
 		std::cout<<"false opcode"<<std::endl;
-		break;
+		return 0;
 		
 	}
-	return result;
+	return 0;
 		
 }
 /*
@@ -89,6 +84,7 @@ It is responsible for loading a program into the RAM
 void CPU::load(std::vector<int> program) {
 	for (int i = 0;i < program.size();i++) {
 		ram.write(i,program[i]);
+		instr_count++;
 	}
 
 
@@ -99,7 +95,10 @@ It is responsible for executing the loaded program by
 coordinating the actions of the various components of the CPU.
 */
 void CPU::execute() {
-	control_unit.fetch();
-	control_unit.decode(control_unit.instr);
-	control_unit.exe();
+	for (int i = 0;i < instr_count;i++) {
+		control_unit.fetch();
+		control_unit.decode(control_unit.instr);
+		control_unit.exe();
+
+	}
 }
