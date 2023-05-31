@@ -11,7 +11,7 @@ reg [1:0] st;
 reg [24:0] count;
 
 always @(posedge clk) begin
-	if (count == 25'd250000) begin
+	if (count == 25'd25000000) begin
 		count <= 0;
 		st <= st + 1;
 	end
