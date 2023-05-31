@@ -20,6 +20,7 @@ always @(posedge clk) begin
 
 end
 
+
 always @(posedge clk) begin
 	if (reset) begin
 		led_1 <= 1'b0;
@@ -27,9 +28,9 @@ always @(posedge clk) begin
 		led_3 <= 1'b0;
 		led_4 <= 1'b0;
 	end
-end
 
-always @(posedge clk) begin
+	else
+
 	case (st)
 		2'b00: begin
 			led_1 <= 1'b1;
@@ -57,6 +58,8 @@ always @(posedge clk) begin
 		end
 		default: st <= 1'b0;
 	endcase
+end
+
 end
 
 endmodule:
