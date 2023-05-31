@@ -58,7 +58,6 @@ always @(posedge clk) begin
 		end
 		default: st <= 1'b0;
 	endcase
-end
 
 end
 
