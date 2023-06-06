@@ -1,4 +1,5 @@
 module Memory (
+
 	input wire clk,
   	input wire [7:0] data_input,
   	input wire [3:0] address,
