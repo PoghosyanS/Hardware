@@ -1,16 +1,15 @@
-module binary_adder(input [3:0] A, input [3:0] B, output [3:0] sum);
-
-  wire [3:0] C;
-  wire [3:0] temp;
-  assign C[0] = 1'b0; 
-  assign temp[0] = A[0] ^ B[0] ^ C[0];
-  assign C[1] = (A[0] & B[0]) | (C[0] & (A[0] ^ B[0]));
-  assign temp[1] = A[1] ^ B[1] ^ C[1];
-  assign C[2] = (A[1] & B[1]) | (C[1] & (A[1] ^ B[1]));
-  assign temp[2] = A[2] ^ B[2] ^ C[2];
-  assign C[3] = (A[2] & B[2]) | (C[2] & (A[2] ^ B[2]));
-  assign temp[3] = A[3] ^ B[3] ^ C[3];
-  assign sum = temp;
-
+module full_adder(input A, input B, input Cin, output S, output Cout);
+  assign S = A ^ B ^ Cin;
+  assign Cout = (A & B) | (Cin & (A ^ B));
 endmodule
-  
+
+module binary_adder(input [3:0] A, input [3:0] B, output [3:0] Sum);
+  wire [3:0] Cin;
+  wire [3:0] Carry;
+
+  full_adder FA0 (.A(A[0]), .B(B[0]), .Cin(1'b0), .S(Sum[0]), .Cout(Carry[0]));
+  full_adder FA1 (.A(A[1]), .B(B[1]), .Cin(Carry[0]), .S(Sum[1]), .Cout(Carry[1]));
+  full_adder FA2 (.A(A[2]), .B(B[2]), .Cin(Carry[1]), .S(Sum[2]), .Cout(Carry[2]));
+  full_adder FA3 (.A(A[3]), .B(B[3]), .Cin(Carry[2]), .S(Sum[3]), .Cout(Carry[3]));
+endmodule
+
