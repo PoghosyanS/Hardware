@@ -3,7 +3,7 @@ module binary_adder_tb;
   reg [3:0] B;
   wire [3:0] Sum;
 
-  binary_adder dut (.A(A), .B(B), .Sum(Sum));
+  full_adder dut (.A(A), .B(B), .Sum(Sum));
 
   initial begin
     // Test case 1: A = 5 (0101), B = 5 (0101)
