@@ -1,9 +1,9 @@
-module pwm_control_tb;
+module control_tb;
 
   	reg clk;
   	wire led;
 
-  	pwm_control dut (
+  	control dut (
     	.clk(clk),
     	.led(led)
   );
